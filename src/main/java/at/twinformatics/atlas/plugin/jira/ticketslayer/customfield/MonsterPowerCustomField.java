@@ -1,5 +1,7 @@
 package at.twinformatics.atlas.plugin.jira.ticketslayer.customfield;
 
+import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
+import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.atlassian.jira.issue.customfields.impl.TextCFType;
@@ -13,10 +15,12 @@ import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
 import java.util.List;
 import java.util.Map;
 
+@Scanned
 public class MonsterPowerCustomField extends TextCFType {
     private static final Logger log = LoggerFactory.getLogger(MonsterPowerCustomField.class);
 
-    public MonsterPowerCustomField(CustomFieldValuePersister customFieldValuePersister, GenericConfigManager genericConfigManager) {
+    public MonsterPowerCustomField(@JiraImport CustomFieldValuePersister customFieldValuePersister,
+                                   @JiraImport GenericConfigManager genericConfigManager) {
     super(customFieldValuePersister, genericConfigManager);
 }
     
